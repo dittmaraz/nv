@@ -1,4 +1,9 @@
-echo "😃 nv by "
+GREEN='\033[1;32m'
+GREY='\033[0;36m'
+NC='\033[0m'
+
+
+echo -e "${GREEN}😃 nv by ${GREY}dittmaraz${NC}"
 if [ -z "$*" ]; then 
 	echo "Missing argument: new project name"
 	exit
@@ -10,19 +15,20 @@ GITHUB_URL="git@github.com:dittmaraz/vue-dittmaraz-template.git"
 PROJECT_NAME="$1"
 PROJECT_PATH="$PROJECTS_PATH/$PROJECT_NAME"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ATH="$PRJPATH/$VUEPRJNAME"         # The path of the new project
 
-echo "GITHUB: $GITHUB_URL"
-echo "PROJECT_PATH: $PROJECT_PATH"
+echo -e "${GREEN}GITHUB:${NC} ${GREY} $GITHUB_URL${NC}"
+echo -e "${GREEN}PROJECT_PATH: ${NC} ${GREY}$PROJECT_PATH${NC}"
+
 
 if [ ! -d "$PROJECT_PATH" ]; then
     mkdir "$PROJECT_PATH"
-    echo "Folder $PROJECT_PATH created."
+    echo "Folder ${GREY}$PROJECT_PATH ${NC} created."
 fi
 
 cd "$PROJECT_PATH"
 
 git clone "$GITHUB_URL" $PWD
 
-echo "Copied $GITHUB_URL to $PROJECT_PATH"
+echo -e "Copied ${GREY} $GITHUB_URL ${NC} to ${GREY} $PROJECT_PATH ${NC}"
 
 npm i
 
